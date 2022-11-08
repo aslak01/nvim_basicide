@@ -15,6 +15,8 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -36,7 +38,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -57,9 +59,32 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fw", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fc", ":Telescope resume<CR>", opts)
+
+-- local wk = require("which-key")
+-- -- As an example, we will create the following mappings:
+-- --  * <leader>ff find files
+-- --  * <leader>fr show recent files
+-- --  * <leader>fb Foobar
+-- -- we'll document:
+-- --  * <leader>fn new file
+-- --  * <leader>fe edit file
+-- -- and hide <leader>1
+--
+-- wk.register({
+--   f = {
+--     name = "file", -- optional group name
+--     f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+--     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
+--     n = { "New File" }, -- just a label. don't create any mapping
+--     e = "Edit File", -- same as above
+--     ["1"] = "which_key_ignore",  -- special label to hide it in the popup
+--     b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+--   },
+-- }, { prefix = "<leader>" })
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
