@@ -1,6 +1,6 @@
 require "user.impatient"
 require "user.options"
--- require "user.which-key"
+require "user.which-key"
 require "user.keymaps"
 require "user.plugins"
 require "user.autocommands"
