@@ -47,22 +47,40 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
+  require("plugins/autopairs")
   use { "numToStr/Comment.nvim" }
+  require("plugins/comment")
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "kyazdani42/nvim-web-devicons" }
   use { "kyazdani42/nvim-tree.lua" }
+  require("plugins/nvim-tree")
   use { "akinsho/bufferline.nvim" }
+  require("plugins/bufferline")
   use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
+  require("plugins/lualine")
   use { "akinsho/toggleterm.nvim" }
+  require("plugins/toggleterm")
   use { "ahmedkhalf/project.nvim" }
+  require("plugins/project")
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
+  require("plugins/indentline")
   -- use { "goolord/alpha-nvim" }
 
   -- User plugins
   use { "karb94/neoscroll.nvim" } -- smooth scroll
+  require("plugins/neoscroll")
   use { "folke/which-key.nvim" }
+  require("plugins/which-key")
+  use { "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  }
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
@@ -75,6 +93,8 @@ return packer.startup(function(use)
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
+  require("plugins/cmp")
+  -- use { "kylechui/nvim-surround",
   use { "hrsh7th/cmp-buffer" } -- buffer completions
   use { "hrsh7th/cmp-path" } -- path completions
   use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
@@ -91,20 +111,26 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" }
+  use({ "jose-elias-alvarez/typescript.nvim" }) -- github.com/jose-elias-alvarez/typescript.nvim
 
   -- Telescope
+  -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
   use { "nvim-telescope/telescope.nvim" }
+  require("plugins/telescope")
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }
+  require("plugins/treesitter")
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
+  require("plugins/gitsigns")
 
   -- DAP
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui" }
   use { "ravenxrz/DAPInstall.nvim" }
+  require("plugins/dap")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
