@@ -1,3 +1,4 @@
+require "lsp.mason"
 local u = require("config.utils")
 
 local lsp = vim.lsp
@@ -65,9 +66,9 @@ local on_attach = function(client, bufnr)
     u.buf_command(bufnr, "LspRef", "FzfLua lsp_references")
     u.buf_command(bufnr, "LspSym", "FzfLua lsp_workspace_symbols")
     u.buf_command(bufnr, "LspAct", "FzfLua lsp_code_actions")
-    -- u.buf_command(bufnr, "LspDef", function()
-    --     require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
-    -- end)
+    u.buf_command(bufnr, "LspDef", function()
+        require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+    end)
 
     -- bindings
     u.buf_map(bufnr, "n", "gi", ":LspRename<CR>")

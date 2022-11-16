@@ -111,10 +111,15 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" }
-  use({ "jose-elias-alvarez/typescript.nvim" }) -- github.com/jose-elias-alvarez/typescript.nvim
+  use{ "jose-elias-alvarez/typescript.nvim" } -- github.com/jose-elias-alvarez/typescript.nvim
 
   -- Telescope
   -- use_with_config("ibhagwan/fzf-lua", "fzf") -- better lua version of fzf.vim
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+  require("plugins/fzf")
   use { "nvim-telescope/telescope.nvim" }
   require("plugins/telescope")
 

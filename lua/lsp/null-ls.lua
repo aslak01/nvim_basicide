@@ -10,7 +10,9 @@ end
 
 local sources = {
     -- formatting
-    b.formatting.prettier,
+    b.formatting.prettier.with({
+      filetypes = {"svelte"}
+    }),
     b.formatting.fish_indent,
     b.formatting.shfmt,
     b.formatting.clang_format,
@@ -39,7 +41,7 @@ local sources = {
 local M = {}
 M.setup = function(on_attach)
     null_ls.setup({
-        -- debug = true,
+        debug = true,
         sources = sources,
         on_attach = on_attach,
     })
